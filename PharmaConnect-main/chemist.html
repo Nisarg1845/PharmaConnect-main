@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chemist Dashboard - Mediconnect</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            background: var(--color-5);
+            min-height: 100vh;
+            margin: 0;
+            display: flex;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        .sidebar {
+            width: 260px;
+            background: linear-gradient(180deg, var(--color-2) 0%, var(--color-3) 100%);
+            color: var(--color-5);
+            min-height: 100vh;
+            box-shadow: 2px 0 16px rgba(0,0,0,0.07);
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            padding-top: 40px;
+            position: fixed;
+            left: 0;
+            top: 0;
+            z-index: 10;
+        }
+        .sidebar h2 {
+            font-size: 1.6rem;
+            font-weight: bold;
+            color: var(--color-4);
+            margin: 0 0 32px 32px;
+            letter-spacing: 1px;
+        }
+        .sidebar nav {
+            width: 100%;
+        }
+        .sidebar nav a {
+            display: block;
+            padding: 16px 32px;
+            color: var(--color-5);
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: 500;
+            border-left: 4px solid transparent;
+            transition: background 0.2s, border-color 0.2s, color 0.2s;
+        }
+        .sidebar nav a.active, .sidebar nav a:hover {
+            background: var(--color-1);
+            color: var(--color-4);
+            border-left: 4px solid var(--color-4);
+        }
+        .main-content {
+            margin-left: 260px;
+            padding: 40px 32px;
+            width: 100%;
+            min-height: 100vh;
+            background: var(--color-5);
+        }
+        .section {
+            display: none;
+            background: rgba(255,255,255,0.97);
+            border-radius: 12px;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.07);
+            padding: 32px;
+            margin-bottom: 32px;
+            color: var(--color-5);
+        }
+        .section.active {
+            display: block;
+        }
+        @media (max-width: 800px) {
+            .sidebar {
+                width: 70px;
+                padding-top: 20px;
+            }
+            .sidebar h2 {
+                display: none;
+            }
+            .sidebar nav a {
+                padding: 14px 10px;
+                font-size: 0.95rem;
+                text-align: center;
+            }
+            .main-content {
+                margin-left: 70px;
+                padding: 24px 8px;
+            }
+        }
+        .register-drug-section {
+            background: var(--color-4);
+            border: 1.5px solid var(--color-3);
+        }
+        
+        /* Add new styles for register drug form */
+        .center-label {
+            position: relative;
+            margin-bottom: 20px;
+        }
+        
+        .center-label label {
+            position: absolute;
+            left: 10px;
+            top: -10px;
+            font-size: 14px;
+            background-color: var(--color-4);
+            padding: 0 5px;
+            color: white;
+            z-index: 1;
+        }
+        
+        .center-label input {
+            width: 100%;
+            padding: 12px 10px;
+            border: 2px solid var(--color-3);
+            border-radius: 5px;
+            background: white;
+            font-size: 16px;
+            color: var(--color-5);
+        }
+        
+        .center-label input:focus {
+            border-color: var(--color-1);
+            outline: none;
+        }
+        
+        #register-drug-form {
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        
+        #register-drug-form .submit-btn {
+            margin-top: 20px;
+            background: var(--color-1);
+            color: var(--color-5);
+            font-weight: bold;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        #register-drug-form .submit-btn:hover {
+            background: var(--color-2);
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body>
+    <aside class="sidebar">
+        <h2>Chemist</h2>
+        <nav>
+            <a href="#billing" class="active" onclick="showSection(event, 'billing')">Billing System</a>
+            <a href="#doctor-order" onclick="showSection(event, 'doctor-order')">Doctor Order</a>
+            <a href="#prediction" onclick="showSection(event, 'prediction')">Prediction Report</a>
+            <a href="#sales" onclick="showSection(event, 'sales')">Sales Report</a>
+            <a href="#expired" onclick="showSection(event, 'expired')">Expired</a>
+            <a href="#out-of-stock" onclick="showSection(event, 'out-of-stock')">Out of Stock</a>
+            <a href="#register-drug" onclick="showSection(event, 'register-drug')">Register Drug</a>
+        </nav>
+    </aside>
+    <main class="main-content">
+        <section id="billing" class="section active">
+            <h2>Billing System</h2>
+            <p>Feature for managing and generating bills for customers. (UI/logic to be implemented)</p>
+        </section>
+        <section id="doctor-order" class="section">
+            <h2>Doctor Order</h2>
+            <p>View and manage orders received from doctors. (UI/logic to be implemented)</p>
+        </section>
+        <section id="prediction" class="section">
+            <h2>Prediction Report</h2>
+            <p>Analyze and view prediction reports for inventory and sales. (UI/logic to be implemented)</p>
+        </section>
+        <section id="sales" class="section">
+            <h2>Sales Report</h2>
+            <p>View sales reports and analytics. (UI/logic to be implemented)</p>
+        </section>
+        <section id="expired" class="section">
+            <h2>Expired</h2>
+            <p>Track and manage expired medicines. (UI/logic to be implemented)</p>
+        </section>
+        <section id="out-of-stock" class="section">
+            <h2>Out of Stock</h2>
+            <p>Monitor and manage out-of-stock items. (UI/logic to be implemented)</p>
+        </section>
+        <section id="register-drug" class="section register-drug-section">
+            <h2>Register Medical Drug</h2>
+            <form id="register-drug-form" onsubmit="registerDrug(event)">
+                <div class="form-group center-label">
+                    <label for="drug-name">Drug Name</label>
+                    <input type="text" id="drug-name" name="drug-name" required>
+                </div>
+                <div class="form-group center-label">
+                    <label for="drug-id">Drug ID</label>
+                    <input type="text" id="drug-id" name="drug-id" required>
+                </div>
+                <div class="form-group center-label">
+                    <label for="drug-quantity">Quantity</label>
+                    <input type="number" id="drug-quantity" name="drug-quantity" min="1" required>
+                </div>
+                <div class="form-group center-label">
+                    <label for="drug-expiry">Expired Date</label>
+                    <input type="date" id="drug-expiry" name="drug-expiry" required>
+                </div>
+                <div class="form-group center-label">
+                    <label for="drug-price">Price</label>
+                    <input type="number" id="drug-price" name="drug-price" min="0" step="0.01" required>
+                </div>
+                <div class="form-group center-label">
+                    <label for="company-name">Company Name</label>
+                    <input type="text" id="company-name" name="company-name" required>
+                </div>
+                <button type="submit" class="submit-btn">Register Drug</button>
+            </form>
+            <div id="register-drug-success" style="display:none; color: var(--color-4); margin-top: 16px; font-weight: 600;">Drug registered successfully!</div>
+        </section>
+    </main>
+    <script>
+        function showSection(event, sectionId) {
+            event.preventDefault();
+            document.querySelectorAll('.sidebar nav a').forEach(a => a.classList.remove('active'));
+            event.currentTarget.classList.add('active');
+            document.querySelectorAll('.section').forEach(sec => sec.classList.remove('active'));
+            document.getElementById(sectionId).classList.add('active');
+        }
+        function registerDrug(event) {
+            event.preventDefault();
+            document.getElementById('register-drug-success').style.display = 'block';
+            setTimeout(() => {
+                document.getElementById('register-drug-success').style.display = 'none';
+                document.getElementById('register-drug-form').reset();
+            }, 2000);
+        }
+    </script>
+</body>
+</html> 
